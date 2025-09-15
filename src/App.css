@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#111, #000);
+    color: white;
+    padding: 16px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.traffic-light {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #222;
+    padding: 24px;
+    border-radius: 16px;
+    border: 3px solid #444;
+    box-shadow: 0 0 12px rgba(0,0,0,0.6);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.led-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: #000;
+    padding: 8px;
+    border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.led-row {
+    display: flex;
+    gap: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.led-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #222;
+}
+.led-dot.red {
+    background: red;
+    box-shadow: 0 0 10px red;
+}
+.led-dot.green {
+    background: lime;
+    box-shadow: 0 0 10px lime;
+}
+.led-dot.off {
+    background: #111;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* цифры */
+.digital-led {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+.led-digit {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* кнопки управления */
+.controls {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.controls button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 📱 iPhone 14 Pro / Pro Max (адаптивные стили) */
+@media screen and (max-width: 430px) {
+    .led-dot {
+        width: 18px;
+        height: 18px;
+    }
+    .digital-led {
+        gap: 10px;
+    }
+    .controls button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+
+@media screen and (min-width: 431px) and (max-width: 480px) {
+    .led-dot {
+        width: 20px;
+        height: 20px;
+    }
+    .controls button {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
 }
